@@ -2,6 +2,7 @@ import View from './View';
 // ../ jedna úrověn výš v adresáři
 import icons from 'url:../../img/icons.svg';
 import { Fraction } from 'fractional';
+import fracty from 'fracty';
 
 //hash symbol(#) = private. underscore(_) = protected
 class RecipeView extends View {
@@ -132,7 +133,7 @@ class RecipeView extends View {
       <use href="${icons}#icon-check"></use>
     </svg>
     <div class="recipe__quantity">${
-      ing.quantity ? new Fraction(ing.quantity).toString() : ''
+      ing.quantity ? fracty(ing.quantity) : ''
     }</div>
     <div class="recipe__description">
       <span class="recipe__unit">${ing.unit}
