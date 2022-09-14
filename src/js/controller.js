@@ -12,10 +12,6 @@ import searchView from './views/searchView.js';
 import resultsView from './views/resultsView.js';
 import bookmarksView from './views/bookmarksView.js';
 
-// if (module.hot) {
-//   module.hot.accept();
-// }
-
 const controlRecipes = async function () {
   try {
     const id = window.location.hash.slice(1);
@@ -43,7 +39,6 @@ const controlSearchResults = async function () {
     // 2) Load search results
     await model.loadSearchResult(query);
     // 3) render results
-    // resultsView.render(model.state.search.results);
     // Setting nothing means basicly set to 1
     resultsView.render(model.getSearchResultsPage());
 
@@ -66,7 +61,6 @@ const controlServings = function (newServings) {
   // Update the recepie servings (in state)
   model.updadetServings(newServings);
   // Update the view
-  // recipeView.render(model.state.recipe);
   recipeView.update(model.state.recipe);
 };
 
@@ -115,10 +109,6 @@ const controlAddRecipe = async function (newRecipe) {
   }
 };
 
-const newFeature = function () {
-  console.log('Welcome to the new branch');
-};
-
 const init = function () {
   //addHandlers call
   bookmarksView.addHandlerRender(controlerBookmarks);
@@ -128,7 +118,6 @@ const init = function () {
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
   addRecipeView._addHandleUpload(controlAddRecipe);
-  newFeature();
 };
 
 init();
