@@ -32,6 +32,7 @@ export const loadRecipe = async function (id) {
   try {
     const data = await AJAX(`${API_URL}${id}?key=${KEY}`);
     state.recipe = createRecipeObject(data);
+
     if (state.bookmarks.some(bookmarks => bookmarks.id === id))
       state.recipe.bookmarked = true;
     else state.recipe.bookmarked = false;
@@ -62,7 +63,7 @@ export const loadSearchResult = async function (query) {
     //reset search results for new searching
     state.search.page = 1;
   } catch (err) {
-    console.console.error(`${err} 🎆loadserachresult🎆`);
+    console.error(`${err} 🎆loadserachresult🎆`);
     throw err;
   }
 };
@@ -115,11 +116,6 @@ const init = function () {
   if (storage) state.bookmarks = JSON.parse(storage);
 };
 init();
-
-const clearBookmarks = function () {
-  localStorage.clear('bookmarks');
-};
-// clearBookmarks();
 
 export const uploadRecipe = async function (newRecipe) {
   try {
