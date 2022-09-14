@@ -1,7 +1,6 @@
 import View from './View';
 // ../ jedna úrověn výš v adresáři
 import icons from 'url:../../img/icons.svg';
-import { Fraction } from 'fractional';
 import fracty from 'fracty';
 
 //hash symbol(#) = private. underscore(_) = protected
